@@ -3,7 +3,7 @@
 
 **Captain** is a consultation platform that connects students with consultants.
 
-## 🚀 How to Run
+##  How to Run
 
 1. Clone the repository:
    ```bash
@@ -29,7 +29,7 @@
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **Backend**: Node.js with Express
 - **Frontend**: HTML, CSS, JavaScript

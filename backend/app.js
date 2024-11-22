@@ -1,10 +1,14 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
-const consultationRoutes = require("./routes/consultationRoutes");
+const path = require('path');
 
-app.use("/api", consultationRoutes);
+app.use(express.static(path.join(__dirname, '../frontend')));
 
-app.listen(port, () => {
-    console.log(`Captain server running at http://localhost:${port}`);
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });

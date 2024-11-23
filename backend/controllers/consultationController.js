@@ -1,17 +1,17 @@
-// consultationController.js
-const getConsultationInfo = (req, res) => {
-    res.json({ message: 'Advising service is available!' });
-};
-
-module.exports = { getConsultationInfo };
-
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-exports.signup = async (req, res) => {
+// Handle GET request for consultation info
+const getConsultationInfo = (req, res) => {
+    res.json({ message: 'Advising service is available!' });
+};
+
+// Handle user signup
+const signup = async (req, res) => {
     const { name, email, password, role } = req.body;
 
+    // Validate role
     if (!['student', 'consultant'].includes(role)) {
         return res.status(400).send('Invalid role');
     }
@@ -26,7 +26,8 @@ exports.signup = async (req, res) => {
     }
 };
 
-exports.signin = async (req, res) => {
+// Handle user signin
+const signin = async (req, res) => {
     const { email, password } = req.body;
 
     try {
@@ -45,3 +46,6 @@ exports.signin = async (req, res) => {
         res.status(500).send('Error: ' + err.message);
     }
 };
+
+// Export all functions
+module.exports = { getConsultationInfo, signup, signin };

@@ -47,5 +47,4 @@ const signin = async (req, res) => {
     }
 };
 
-// Export all functions
 module.exports = { getConsultationInfo, signup, signin };
